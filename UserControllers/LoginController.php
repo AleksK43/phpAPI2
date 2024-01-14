@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = htmlspecialchars(strip_tags($data->email));
         $password = htmlspecialchars(strip_tags($data->password));
 
-        // Zapytanie SQL do pobrania użytkownika o podanym adresie email
         $getUserQuery = $conn->prepare("SELECT * FROM users WHERE Email = ?");
         $getUserQuery->bind_param("s", $email);
         $getUserQuery->execute();
