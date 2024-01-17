@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $createDate = date("Y-m-d");
         $isAdmin = 0; // Domyślnie ustawione na 0 (false)
 
-        // Zapytanie SQL do dodania nowego użytkownika
         $insertUserQuery = $conn->prepare("INSERT INTO users (UserName, Name, Surname, CreateDate, IsAdmin, Email, Password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $insertUserQuery->bind_param("ssssiss", $username, $firstName, $lastName, $createDate, $isAdmin, $email, $hashedPassword);
 
